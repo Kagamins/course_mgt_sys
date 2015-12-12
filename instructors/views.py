@@ -6,7 +6,8 @@ from django.core.urlresolvers import reverse
 from .models import Instructor, Appointment
 from courses.models import Grade, GradeColumn
 from .forms import GradeColumnEditForm, AppointmentForm, AnnouncementForm
-
+from django.core.mail import send_mail , BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
 
@@ -105,3 +106,10 @@ def appointment_view(request, pk):
             'instructor': inst,
             'appointments': appoint
         })
+
+
+# to send mail first put the "send_mail" function then (#open brackets
+# write the 'Subject ', and write the   ' message.',
+# the email sending the message 'from@example.com',
+# the email,emails reciving the message  ['to@example.com'],
+# to not cause any errors when failing to send an email fail_silently=False)

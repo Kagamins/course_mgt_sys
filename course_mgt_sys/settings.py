@@ -128,6 +128,13 @@ MESSAGE_TAGS = {
     message_constants.SUCCESS: 'alert-success',
     message_constants.ERROR: 'alert-danger',
 }
+#sendgrid configuration
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'sendgrid_username'
+EMAIL_HOST_PASSWORD = 'sendgrid_password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # do not put anything under this line
 try:
     from local_settings import *

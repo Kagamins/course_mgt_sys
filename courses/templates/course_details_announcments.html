@@ -50,14 +50,14 @@
 <br>{% if user.is_student %}
 <a class="btn btn-primary btn-md glyphicon glyphicon-edit" href="{% url 'student_attendance' course_id  l.pk %}">Student Check-in</a>
 {%endif%}
-<div class="list-group-item">
+<a class="list-group-item">
   <p class="list-group-item-text">Lecture Name: {{l.name}}
   </p>
   <p class="list-group-item-text">Time of lecture : {{l.time_of_lecture}}
   </p>
   <p class="list-group-item-text">number of students: {{l.number_of_students}}
   </p>
-</div>
+</a>
 {%endfor%}
 {% if user.is_instructor %}
   <br/>  <a class="btn btn-default btn-primary" href="{% url 'lecture_create' course.id %}"> Add new Lecture  </a>

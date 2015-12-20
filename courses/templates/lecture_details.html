@@ -4,7 +4,9 @@
 <p>Time of Lecture : {{lecture.time_of_lecture}}</p>
 <p>Course : {{lecture.course.name}}</p>
 <p>Instructor : {{lecture.course.instructor.name}}</p>
-<a href="{% url 'student_attendance' course_id  lecture_id %}">Student Check-in</a>
+{% if user.is_student %}
+<a class="btn btn-primary btn-md glyphicon glyphicon-edit"  href="{% url 'student_attendance' course_id  lecture_id %}">Student Check-in</a>
+{%endif%}
 <table class="table">
   <tr>
     <th>

@@ -47,9 +47,10 @@
 {% endfor %}
 {% for l in lectures%}
 <h2>Lectures List:</h2>
-<br>
+<br>{% if user.is_student %}
+<a class="btn btn-primary btn-md glyphicon glyphicon-edit" href="{% url 'student_attendance' course_id  l.pk %}">Student Check-in</a>
+{%endif%}
 <div class="list-group-item">
-  <a href="{% url 'student_attendance' course_id  l.pk %}">Student Check-in</a>
   <p class="list-group-item-text">Lecture Name: {{l.name}}
   </p>
   <p class="list-group-item-text">Time of lecture : {{l.time_of_lecture}}

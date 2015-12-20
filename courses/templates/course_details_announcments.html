@@ -45,6 +45,19 @@
   </p>
 </a>
 {% endfor %}
+{% for l in lectures%}
+<h2>Lectures List:</h2>
+<br>
+<div class="list-group-item">
+  <a href="{% url 'student_attendance' course_id  l.pk %}">Student Check-in</a>
+  <p class="list-group-item-text">Lecture Name: {{l.name}}
+  </p>
+  <p class="list-group-item-text">Time of lecture : {{l.time_of_lecture}}
+  </p>
+  <p class="list-group-item-text">number of students: {{l.number_of_students}}
+  </p>
+</div>
+{%endfor%}
 {% if user.is_instructor %}
   <br/>  <a class="btn btn-default btn-primary" href="{% url 'lecture_create' course.id %}"> Add new Lecture  </a>
    <a class="btn btn-default btn-primary" href="{% url 'create_course_announcment' course.id %}"> Add Course Announcement  </a>

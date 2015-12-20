@@ -543,13 +543,16 @@ def student_view_course_announcments(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     announcments = CourseAnnouncement.objects.filter(course__pk=course_id)
     students = Student.objects.filter(course__pk=course_id)
+    lecture = Lecture.objects.filter(course__pk=course_id)
     return render(
         request,
         "course_details_announcments.html",
         {
             'course': course,
+            'course_id' : course_id,
             'students': students,
-            'announcments': announcments
+            'announcments': announcments,
+            'lectures' : lecture,
         })
 
 

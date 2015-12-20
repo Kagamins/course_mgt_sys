@@ -45,8 +45,8 @@
   </p>
 </a>
 {% endfor %}
-{% for l in lectures%}
 <h2>Lectures List:</h2>
+{% for l in lectures%}
 <br>{% if user.is_student %}
 <a class="btn btn-primary btn-md glyphicon glyphicon-edit" href="{% url 'student_attendance' course_id  l.pk %}">Student Check-in</a>
 {%endif%}
